@@ -5,49 +5,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>RPS Firebase</title>
-    <!--Adding the reset css
-    <link type="text/css" rel="stylesheet" href="assets/css/reset.css">-->
-    <!--Adding the src for JQuery -->
+    <title>Frugal Foodie</title>
+    <link rel="stylesheet" href="assets/css/reset.css">   
+    <link rel="stylesheet" href="assets/css/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
-    <!--Adding the src for Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
         crossorigin="anonymous">
-    <!--Adding the src for Font Awesome-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!--Adding the link for Google Icons-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <!--Adding the src for our Bootcamp driven styling
-    <link type="text/css" rel="stylesheet" href="assets/css/style.css">-->
-    <!-- Game Logic 
-    <script type="text/javascript" src="assets/javascript/game.js"></script>-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://bootswatch.com/4/superhero/bootstrap.min.css" rel="stylesheet" type="text/css">
+
 </head>
+
 <body>
 <div class="container">
-        <div class="jumbotron">
-                <h1>Frugal Foodie</h1>
-                <p>Northwestern Coding Bootcamp</p>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Frugal Foodie</h1>
         </div>
-                <div class="form-group">
+      </div>
+
+        
+                    <div class="form-group">
                         <label class="control-label col-sm-2" for="formInput">Zip or Location</label>
                         <div class="col-sm-10">
                             <input type="" class="form-control" id="formInput" placeholder="Chicago">
                         </div>
-                    </div><!--End for the inputbox-->
+                    </div>
+                    <!--End for the inputbox-->
                     <div class="form-group">
                             <label class="control-label col-sm-2" for="formFood">What are you craving?</label>
                             <div class="col-sm-10">
                                 <input type="" class="form-control" id="formFood" placeholder="Pizza">
                             </div>
-                        </div><!--End for the inputbox-->
-                        <div class="form-group">
-                                <div class="col-sm-offset-2 col-sm-10">
-                                    <button id="submit" type="submit" class="btn btn-primary" val="">Submit</button>
-                                </div>
+                    </div>
+                    <!--End for the inputbox-->
+                    <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-2">
+                                <button id="submit" type="submit" data-toggle="popover" class="btn btn-primary" val="">Submit</button>
                             </div>
+                    </div>
+
+                    <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                            <label for="popularsearches">Popular Searches in Your Area</label>
+                            <textarea class="form-control" rows="5" id="popular searches"></textarea>
+                            </div>
+                    </div>
+
+                    <div class="searchresults">
+
+                    </div>
+
+                              <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                  <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                  </li>
+                                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                  <li class="page-item">
+                                    <a class="page-link" href="#">Next</a>
+                                  </li>
+                                </ul>
+                              </nav>
 
 </div> <!-- End Container -->
+
 
 
 
