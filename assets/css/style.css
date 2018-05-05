@@ -7,3 +7,8 @@
 .container {
     font-family: 'Raleway', sans-serif;
 }
+
+img {
+    height: 50%;
+    width: 50%;
+}
