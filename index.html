@@ -100,8 +100,8 @@
         Basic HTML is the goal.*/
 
         //Set global variables here
-        var food;
-        var place;
+        var food = "";
+        var place = "";
         var debug = false;
 
 
@@ -145,35 +145,21 @@
             });//End Ajax Call
 
         
-
-
-
-
-
-
-
-
-
         }); //End of submit click
 
     function prependResults(resp){
         console.log(resp);
-        //var displayPhone;
-        //var name;
-        //var rating;
-        //var coordinates;
-        //var phone;
-        //var closed;
-        //var image;
         for (var i = 0; i < resp.businesses.length; i ++)
         {
             let image = resp.businesses[i].image_url;
             let name =resp.businesses[i].name;
             let displayPhone = resp.businesses[i].display_phone;
             let rating = resp.businesses[i].rating;
-            let coordinates = resp.businesses[i].coordinates;
+            let latitude = resp.businesses[i].coordinates.latitude;
+            let longitude = resp.businesses[i].coordinates.longitude;
             let phone = resp.businesses[i].phone;
-            let closed = resp.businesses[i].is_closed;
+            //let closed = resp.businesses[i].is_closed; // Indicator if it is permanently closed
+            let address = resp.businesses[i].location.display_address;
             
             //Create the DOM HTML elements
             let restRow = $("<row>");
@@ -183,30 +169,20 @@
             let p1 = $("<p>").html("Name: " + name);
             let p2 = $("<p>").html("Phone: " + phone);
             let p3 = $("<p>").html("Rating: " + rating);
-            let p4 = $("<p>").html("Open: " + closed);
-            let p5 = $("<p>").html("Coordinates:" + coordinates);
+            let p4 = $("<p>").html("Address: " + address.toString());
+            console.log(latitude + ", " + longitude);
+            //let p4 = $("<p>").html("Closed: " + closed);
+            //let p5 = $("<p>").html("Coordinates:" + coordinates);
             restImage.attr({"src": image, "class": "col-sm-4 img-responsive"});
             restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class","imgMeta");
             imgDiv.append(restImage);
-            restDiv.append(p1, p2, p3, p4, p5);
+            restDiv.append(p1, p2, p3, p4);
             restRow.append(imgDiv, restDiv);
-            $(".searchresults").append(restRow);
+            $(".searchresults").prepend(restRow);
             
             
         }//end for loop
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     }//End preprendResults fuctions
 
 
