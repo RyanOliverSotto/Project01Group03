@@ -79,7 +79,10 @@ $(document).ready(function () {
     };//End updateFB
 //______________
     // Project listener to when new data is added to DB is here
-    database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function(childSnapshot) {
+    //database.ref().on("child_added", function (childSnapshot) {
+    //database.ref.orderByChild("dateAdded").on('child_added', function(childSnapshot) {
+    //database.ref.orderByChild("dateAdded").limitToLast(5).on("child_added", function(childSnapshot) {
+    database.ref().orderByChild("key").limitToLast(4).on("child_added", function(childSnapshot) {
         food = childSnapshot.val().food;
         place = childSnapshot.val().place;
         queryURL = childSnapshot.val().queryURL;
@@ -90,8 +93,14 @@ $(document).ready(function () {
         strSearch+=place+", ";
         strSearch+=food+"\n";
         // Prepend the table row to the table body
-        $("#recentSearches").prepend(strSearch);          
+        $("#recentSearches").append(strSearch);  
+        //$("#recentSearches").html("</br>");            
     });//End ChildAdded 
+
+
+
+
+
 //_______________
 
 
