@@ -125,10 +125,10 @@ $(document).ready(function () {
             let imgDiv = $("<div>");
             let restDiv = $("<div>");
             let restImage = $("<img>");
-            let p1 = $("<p>").html("Name: " + name);
-            let p2 = $("<p>").html("Phone: " + displayPhone);
-            let p3 = $("<p>").html("Rating: " + rating);
-            let p4 = $("<p>").html("Address: " + address.toString());
+            let p1 = $("<tr>").html("Name: " + name) + ("Phone: " + displayPhone);
+            // let p2 = $("<tr>").html("Phone: " + displayPhone);
+            let p3 = $("<tr>").html("Rating: " + rating);
+            let p4 = $("<tr>").html("Address: " + address.toString());
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
             //let p5 = $("<p>").html("Coordinates:" + coordinates);
@@ -142,7 +142,7 @@ $(document).ready(function () {
         }//end for loop
     }//End preprendResults fuction
 
-
+// have results create a div //in that div have 1 row 1 col for image, 1 col for name, rating, and phone number, 1 col for address
 
 
 });//End document.ready
