@@ -3,6 +3,9 @@
     font-weight: bold;
     font-size: 40px;
     font-family: 'Raleway', sans-serif;
+    background-image: url("https://static1.squarespace.com/static/594d3e0b2e69cfd3cd04a569/596446c85016e1544a11e573/596448272e69cf1e25a38410/1499744304399/DMK-Hungry.jpg");
+    background-repeat: none;
+    background-size: cover;
 }
 .container {
     font-family: 'Raleway', sans-serif;
@@ -38,4 +41,15 @@ img {
 .dataMeta{
     position: absolute;
 margin-left: 350px;
+}
+
+img {
+    height: 100px;
+    width: 100px;
+}
+
+.form-control {
+    border-radius: 10px !important;
+    overflow: hidden !important;
+
 }
