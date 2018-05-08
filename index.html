@@ -21,16 +21,7 @@
     <script type="text/javascript" src="assets/js/app.js"></script>
 
 </head>
-<style>
-    .imgMeta, .dataMeta{
-        float: left;
-    }
 
-    .dataMeta{
-        position: absolute;
-    margin-left: 350px;
-    }
-</style>
 <body>
     <div class="container">
         <div class="jumbotron jumbotron-fluid">
@@ -39,7 +30,7 @@
             </div>
         </div>
 
-
+        <div id ="formgroupcontainer">
         <div class="form-group">
             <label class="control-label col-sm-2" for="formInput">Zip or Location</label>
             <div class="col-sm-10">
@@ -66,6 +57,7 @@
                 <textarea class="form-control" rows="5" id="recentSearches"></textarea>
             </div>
         </div>
+        </div>
 
         <div class="searchresults">
 
@@ -90,6 +82,8 @@
                 </li>
             </ul>
         </nav>
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
 
     </div>
     <!-- End Container -->
