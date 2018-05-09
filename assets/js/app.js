@@ -51,10 +51,13 @@ $(document).ready(function () {
             event.preventDefault();
         place = $("#formInput").val().trim();
         food = $("#formFood").val().trim();
+<<<<<<< HEAD
 
        
 
         // $("#formgroupcontainer").hide();
+=======
+>>>>>>> 42f026ace47e2e2a0faa863a672a9ae8c3481067
         event.preventDefault();
         
 
@@ -177,6 +180,7 @@ $(document).ready(function () {
 
 
 });//End document.ready
+<<<<<<< HEAD
 
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -195,3 +199,5 @@ function topFunction() {
     document.body.scrollTop = 0; 
     document.documentElement.scrollTop = 0;
 }
+=======
+>>>>>>> 42f026ace47e2e2a0faa863a672a9ae8c3481067

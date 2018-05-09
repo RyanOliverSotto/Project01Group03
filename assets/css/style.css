@@ -14,6 +14,7 @@
 img {
     height: 50%;
     width: 50%;
+<<<<<<< HEAD
 }
 #myBtn {
     display: none; 
@@ -52,4 +53,6 @@ img {
     border-radius: 10px !important;
     overflow: hidden !important;
 
+=======
+>>>>>>> 42f026ace47e2e2a0faa863a672a9ae8c3481067
 }
