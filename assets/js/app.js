@@ -125,10 +125,6 @@ $(document).ready(function () {
     });//End ChildAdded 
 //_______________
 
-
-
-
-
     function prependResults(resp) {
         console.log(resp);
         for (var i = 0; i < resp.businesses.length; i++) {
@@ -157,9 +153,9 @@ $(document).ready(function () {
             let p4 = $("<td>").html(" Address: " + address.toString());
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
-            let p5 = $("<a>").text("Click me");
+            let p5 = $("<a>").text("View in Map");
             p5.attr("href","#map");
-            p5.attr({"lat": latitude, "lon": longitude});
+            p5.attr({"lat": latitude, "lon": longitude, "id": "goMap"});
             
             restImage.attr({ "src": image
             // , "class": "col-sm-2    img-responsive foodImg" 
@@ -178,7 +174,22 @@ $(document).ready(function () {
         }//end for loop
     }//End preprendResults fuction
 
+    $("body").on("click", "a", function () {
+        //alert("hey");
+        console.log($(this).attr("lat"));
+        console.log($(this).attr("lon"));
+    });
+
+
+
+
+
+
+
 });//End document.ready
+
+
+
 
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -197,3 +208,5 @@ function topFunction() {
     document.body.scrollTop = 0; 
     document.documentElement.scrollTop = 0;
 }
+
+
