@@ -14,11 +14,14 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="https://bootswatch.com/4/superhero/bootstrap.min.css" rel="stylesheet" type="text/css">
+    
     <!--Firebase JS-->
     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
     <!-- Game Logic -->
     <script type="text/javascript" src="assets/js/app.js"></script>
+
 </head>
+
 <body>
         <div class="jumbotron">
                 <div class="container">
@@ -64,25 +67,10 @@
 
         </div>
 
-        <div class="gmapresults">
-            <div id="map" style="width:400px;height:400px;background:yellow"></div>
-        </div>
-
-
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
     </div>
     <!-- End Container -->
-    <script>
-        function myMap() {
-        var mapOptions = {
-            center: new google.maps.LatLng(51.5, -0.12),
-            zoom: 10,
-            mapTypeId: google.maps.MapTypeId.HYBRID
-        }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
-        }
-        </script>
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJPE5hhPRTPYAyq5n6Y0vol3DRXffGwJk&callback=myMap"></script>
 </body>
 
 </html>

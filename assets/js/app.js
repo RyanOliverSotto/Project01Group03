@@ -51,13 +51,10 @@ $(document).ready(function () {
             event.preventDefault();
         place = $("#formInput").val().trim();
         food = $("#formFood").val().trim();
-<<<<<<< HEAD
 
        
 
         // $("#formgroupcontainer").hide();
-=======
->>>>>>> 42f026ace47e2e2a0faa863a672a9ae8c3481067
         event.preventDefault();
         
 
@@ -150,16 +147,20 @@ $(document).ready(function () {
             let imgDiv = $("<div>");
             let restDiv = $("<div>");
             var restTd = $('<td>');
+            let restAnchor = $("<a>");
             let restImage = $("<img>");
             restTd.append(restImage);
-            let p1 = $("<td>").html("Name: " + name);
+            let p1 = $("<td>").html(name + " ");
             p1.append("Phone: " + displayPhone);
             // let p2 = $("<td>").html("Phone: " + displayPhone);
-            let p3 = $("<td>").html("Rating: " + rating);
-            let p4 = $("<td>").html("Address: " + address.toString());
+            let p3 = $("<td>").html(" Rating: " + rating);
+            let p4 = $("<td>").html(" Address: " + address.toString());
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
-            //let p5 = $("<p>").html("Coordinates:" + coordinates);
+            let p5 = $("<a>").text("Click me");
+            p5.attr("href","#map");
+            p5.attr({"lat": latitude, "lon": longitude});
+            
             restImage.attr({ "src": image
             // , "class": "col-sm-2    img-responsive foodImg" 
         });
@@ -171,16 +172,13 @@ $(document).ready(function () {
                  p1,
                 //   p2,
                    p3,
-                    p4);
+                    p4, p5);
             restRow.append(imgDiv, restDiv);
             $(".searchresults").prepend(restRow);
         }//end for loop
     }//End preprendResults fuction
 
-
-
 });//End document.ready
-<<<<<<< HEAD
 
 
 // When the user scrolls down 20px from the top of the document, show the button
@@ -199,5 +197,3 @@ function topFunction() {
     document.body.scrollTop = 0; 
     document.documentElement.scrollTop = 0;
 }
-=======
->>>>>>> 42f026ace47e2e2a0faa863a672a9ae8c3481067
