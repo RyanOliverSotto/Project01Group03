@@ -74,11 +74,12 @@
     <script>
       var publicLat = 29.77479;
       var publicLon = -95.2486;
-
+        $("#map").hide();
             $("body").on("click", "a", function () {
         //alert("hey");
         //console.log($(this).attr("lat"));
         //console.log($(this).attr("lon"));
+        $("#map").show();
             publicLat = $(this).attr("lat");
             publicLon = $(this).attr("lon");
             myMap();
