@@ -13,7 +13,7 @@ $(document).ready(function () {
     var food = "";
     var place = "";
     var debug = false;
-    var entrySubmit = true;
+
     // Initialize Firebase
     var config = {
         apiKey: "AIzaSyDQXVzsC8EJebVAE3VIPVw6CzCM0_5nbLc",
@@ -27,32 +27,12 @@ $(document).ready(function () {
     var database = firebase.database();
     var key = "";
 
-    
-
     $("#submit").on("click", function (event) {
         //alert("I was clicked");
-        var isValid = true;
-        $('#formInput,#formFood').each(function () {
-            if ($.trim($(this).val()) == '') {
-                isValid = false;
-                $(this).css({
-                    "border": "1px solid red",
-                    "background": "#FFCECE"
-                });
-            }
-            else {
-                $(this).css({
-                    "border": "",
-                    "background": ""
-                });
-            }
-        });
-        if (isValid == false)
-            event.preventDefault();
         place = $("#formInput").val().trim();
         food = $("#formFood").val().trim();
+        $("#formgroupcontainer").hide();
         event.preventDefault();
-        
 
         if (debug) {
             alert("I was clicked");
@@ -74,14 +54,8 @@ $(document).ready(function () {
         });//End prefilter
 
         //Do function related to the Firebase DB
-        
-        if((place.length == 0) || (food.length == 0)){
+        addNewFB(queryURL);
 
-        }
-        else {
-            $("#formgroupcontainer").hide();
-            addNewFB(queryURL);
-        
         $.ajax({
             url: queryURL,
             method: 'GET',
@@ -92,7 +66,7 @@ $(document).ready(function () {
             prependResults(response);
 
         });//End Ajax Call
-    }
+
     }); //End of submit click
 
     function addNewFB(queryURL){
@@ -106,7 +80,7 @@ $(document).ready(function () {
     };//End updateFB
 //______________
     // Project listener to when new data is added to DB is here
-    database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function(childSnapshot) {
+    database.ref().orderByChild("dateAdded").limitToLast(10).on("child_added", function(childSnapshot) {
         food = childSnapshot.val().food;
         place = childSnapshot.val().place;
         queryURL = childSnapshot.val().queryURL;
@@ -142,29 +116,20 @@ $(document).ready(function () {
             let restRow = $("<row>");
             let imgDiv = $("<div>");
             let restDiv = $("<div>");
-            var restTd = $('<td>');
             let restImage = $("<img>");
-            restTd.append(restImage);
-            let p1 = $("<td>").html("Name: " + name);
-            p1.append("Phone: " + displayPhone);
-            // let p2 = $("<td>").html("Phone: " + displayPhone);
-            let p3 = $("<td>").html("Rating: " + rating);
-            let p4 = $("<td>").html("Address: " + address.toString());
+            let p1 = $("<p>").html("Name: " + name);
+            let p2 = $("<p>").html("Phone: " + displayPhone);
+            let p3 = $("<p>").html("Rating: " + rating);
+            let p4 = $("<p>").html("Address: " + address.toString());
+            //let p5 = $("<a>").html
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
             //let p5 = $("<p>").html("Coordinates:" + coordinates);
-            restImage.attr({ "src": image
-            // , "class": "col-sm-2    img-responsive foodImg" 
-        });
-            // restDiv.attr("class", "col-sm-3 restMeta");
+            restImage.attr({ "src": image, "class": "col-sm-4 img-responsive" });
+            restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class", "imgMeta");
-            // imgDiv.append(restImage);
-            restDiv.append(
-                restTd,
-                 p1,
-                //   p2,
-                   p3,
-                    p4);
+            imgDiv.append(restImage);
+            restDiv.append(p1, p2, p3, p4);
             restRow.append(imgDiv, restDiv);
             $(".searchresults").prepend(restRow);
         }//end for loop
@@ -172,8 +137,8 @@ $(document).ready(function () {
 
 
 
-});//End document.ready
 
+});//End document.ready
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {scrollFunction()};
@@ -191,5 +156,3 @@ function topFunction() {
     document.body.scrollTop = 0; 
     document.documentElement.scrollTop = 0;
 }
-
-
