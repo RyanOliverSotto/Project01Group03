@@ -54,7 +54,9 @@ $(document).ready(function () {
 
 
 
+
         // $("#formgroupcontainer").hide();
+
         event.preventDefault();
 
 
@@ -140,18 +142,36 @@ $(document).ready(function () {
             //Create the DOM HTML elements
             let restRow = $("<row>");
             let imgDiv = $("<div>");
-            let restDiv = $("<div>");
+            let restDiv = $("<div>").attr("class", "content-row");
             var restTd = $('<td>');
             let restAnchor = $("<a>");
             let restImage = $("<img>");
+
+            var imgA = $('<a href="">');
+            imgA.append(restImage);
+            restTd.append(imgA);
+
+            let p1 = $("<td>").html(" "+ name + '<br>');
+            p1.append( displayPhone);
+
             restTd.append(restImage);
             let p1 = $("<td>").html(name + " ");
             p1.append("Phone: " + displayPhone);
+
             // let p2 = $("<td>").html("Phone: " + displayPhone);
             let p3 = $("<td>").html(" Rating: " + rating);
             let p4 = $("<td>").html(" Address: " + address.toString());
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
+
+            //let p5 = $("<p>").html("Coordinates:" + coordinates);
+            restImage.attr({ "src": image
+            // , "class": "col-sm-2    img-responsive foodImg" 
+    
+        });
+        
+        
+
             let p5 = $("<a>").text("View in Map");
             p5.attr("href", "#map");
             p5.attr({ "lat": latitude, "lon": longitude, "id": "goMap" });
@@ -160,6 +180,7 @@ $(document).ready(function () {
                 "src": image
                 // , "class": "col-sm-2    img-responsive foodImg" 
             });
+
             // restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class", "imgMeta");
             // imgDiv.append(restImage);
@@ -187,8 +208,6 @@ $(document).ready(function () {
 
 
 });//End document.ready
-
-
 
 
 

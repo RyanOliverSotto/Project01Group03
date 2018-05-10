@@ -1,4 +1,9 @@
 
+body {
+    background-color: white !important;   
+}
+
+
 .jumbotron {
     text-align: center;
     font-weight: bold;
@@ -7,6 +12,7 @@
     background-image: url("https://static1.squarespace.com/static/594d3e0b2e69cfd3cd04a569/596446c85016e1544a11e573/596448272e69cf1e25a38410/1499744304399/DMK-Hungry.jpg");
     background-repeat: none;
     background-size: cover;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
 }
 .container {
     font-family: 'Raleway', sans-serif;
@@ -35,7 +41,8 @@ img:hover {
     cursor: pointer; 
     padding: 15px; 
     border-radius: 10px; 
-    font-size: 18px; 
+    font-size: 18px;
+    
 }
 
 #myBtn:hover {
@@ -47,17 +54,41 @@ img:hover {
 
 .dataMeta{
     position: absolute;
-margin-left: 350px;
+    margin-left: 350px;
 }
 
 img {
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
+    border-radius: 10px !important;
 }
 
 .form-control {
     border-radius: 10px !important;
     overflow: hidden !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
 
+.btn-primary {
+    color: #fff;
+    background-color: rgba(215, 30, 30, 1) !important;
+    /* border-color: rgba(215, 30, 30, 1) !important; */
+    border-radius: 10px !important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+
+}
+
+
+.btn-primary:hover {
+    background-color: rgb(168, 49, 49) !important;
+}
+
+label, .octicon-flame {
+color: red;
+fill: red;
+}
+
+td {
+    color: black;
 }
 

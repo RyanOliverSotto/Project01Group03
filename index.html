@@ -19,6 +19,7 @@
     <!-- Game Logic -->
     <script type="text/javascript" src="assets/js/app.js"></script>
 </head>
+
 <body>
         <div class="jumbotron">
                 <div class="container">
@@ -30,9 +31,9 @@
 
         <div id ="formgroupcontainer">
         <div class="form-group">
-            <label class="control-label col-sm-2" for="formInput" >Zip or Location</label>
+            <!-- <label class="control-label col-sm-2" for="formInput" >Zip or Location</label> -->
             <div class="col-sm-10">
-                <input type="" class="form-control" id="formInput" name='geoInput' placeholder="Chicago">
+                <input type="" class="form-control" id="formInput" name='geoInput' placeholder="Zip or Location">
             </div>
         </div>
 
@@ -40,21 +41,23 @@
 
         <!--End for the inputbox-->
         <div class="form-group">
-            <label class="control-label col-sm-2" for="formFood">What are you craving?</label>
+            <!-- <label class="control-label col-sm-2" for="formFood">What are you craving?</label> -->
             <div class="col-sm-10">
-                <input type="" class="form-control" id="formFood" name='foodInput'placeholder="Pizza">
+                <input type="" class="form-control" id="formFood" name='foodInput'placeholder="What are you craving?">
             </div>
         </div>
         <!--End for the inputbox-->
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-2">
-                <button id="submit" type="submit" data-toggle="popover" name='entrySubmit'class="btn btn-primary" val="">Submit</button>
+                <button id="submit" type="submit" data-toggle="popover" name='entrySubmit'class="btn btn-primary" val="">Search</button>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <label for="recentSearches">Recent Searches</label>
+
+                <label for="recentSearches"><svg height="32" class="octicon octicon-flame" viewBox="0 0 12 16" version="1.1" width="24" aria-hidden="true"><path fill-rule="evenodd" d="M5.05.31c.81 2.17.41 3.38-.52 4.31C3.55 5.67 1.98 6.45.9 7.98c-1.45 2.05-1.7 6.53 3.53 7.7-2.2-1.16-2.67-4.52-.3-6.61-.61 2.03.53 3.33 1.94 2.86 1.39-.47 2.3.53 2.27 1.67-.02.78-.31 1.44-1.13 1.81 3.42-.59 4.78-3.42 4.78-5.56 0-2.84-2.53-3.22-1.25-5.61-1.52.13-2.03 1.13-1.89 2.75.09 1.08-1.02 1.8-1.86 1.33-.67-.41-.66-1.19-.06-1.78C8.18 5.31 8.68 2.45 5.05.32L5.03.3l.02.01z"></path> </svg>      Popular Searches in Your Area</label>
+
                 <textarea class="form-control" rows="5" id="recentSearches"></textarea>
             </div>
         </div>
@@ -67,6 +70,33 @@
         <div class="gmapresults">
             <div id="map" style="width:80%;height:500px;background:yellow"></div>
         </div>
+
+        <!--Removed for now
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">1</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">3</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>-->
+
+
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<tBody>
+<!--Insert restaurant rows here-->
+</tBody>
 
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </div>
