@@ -16,12 +16,12 @@ $(document).ready(function () {
     var entrySubmit = true;
     // Initialize Firebase
     var config = {
-        apiKey: "AIzaSyDQXVzsC8EJebVAE3VIPVw6CzCM0_5nbLc",
-        authDomain: "groupproject-56d74.firebaseapp.com",
-        databaseURL: "https://groupproject-56d74.firebaseio.com",
-        projectId: "groupproject-56d74",
-        storageBucket: "",
-        messagingSenderId: "792884529627"
+        apiKey: "AIzaSyCkMry5oUqqD4qjKSRNbW8G8fXlwOoWTQM",
+        authDomain: "groupproject2-cb903.firebaseapp.com",
+        databaseURL: "https://groupproject2-cb903.firebaseio.com",
+        projectId: "groupproject2-cb903",
+        storageBucket: "groupproject2-cb903.appspot.com",
+        messagingSenderId: "28608108315"
     };
     firebase.initializeApp(config);
     var database = firebase.database();
@@ -65,7 +65,7 @@ $(document).ready(function () {
         }; //End Debug
 
         //var queryURL = "https://api.yelp.com/v3/businesses/search?term=" + food + "&latitude=37.786882&longitude=-122.399972"
-        var queryURL = "https://api.yelp.com/v3/businesses/search?term=" + food + "&location=" + place + "&price=1";
+        var queryURL = "https://api.yelp.com/v3/businesses/search?term=" + food + "&location=" + place + "&price=1" + "&limit=50";
 
         if (debug) {
             console.log(queryURL);
