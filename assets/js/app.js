@@ -144,9 +144,12 @@ $(document).ready(function () {
             let restDiv = $("<div>");
             var restTd = $('<td>');
             let restImage = $("<img>");
-            restTd.append(restImage);
-            let p1 = $("<td>").html("Name: " + name);
-            p1.append("Phone: " + displayPhone);
+            var imgA = $('<a href="">');
+            imgA.append(restImage);
+            restTd.append(imgA);
+
+            let p1 = $("<td>").html(" "+ name + '<br>');
+            p1.append( displayPhone);
             // let p2 = $("<td>").html("Phone: " + displayPhone);
             let p3 = $("<td>").html("Rating: " + rating);
             let p4 = $("<td>").html("Address: " + address.toString());
@@ -156,6 +159,7 @@ $(document).ready(function () {
             restImage.attr({ "src": image
             // , "class": "col-sm-2    img-responsive foodImg" 
         });
+        
             // restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class", "imgMeta");
             // imgDiv.append(restImage);
