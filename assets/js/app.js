@@ -141,7 +141,7 @@ $(document).ready(function () {
             //Create the DOM HTML elements
             let restRow = $("<row>");
             let imgDiv = $("<div>");
-            let restDiv = $("<div>");
+            let restDiv = $("<div>").attr("class", "content-row");
             var restTd = $('<td>');
             let restImage = $("<img>");
             var imgA = $('<a href="">');
@@ -158,7 +158,9 @@ $(document).ready(function () {
             //let p5 = $("<p>").html("Coordinates:" + coordinates);
             restImage.attr({ "src": image
             // , "class": "col-sm-2    img-responsive foodImg" 
+    
         });
+        
         
             // restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class", "imgMeta");
