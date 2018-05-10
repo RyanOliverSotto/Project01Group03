@@ -27,7 +27,7 @@ $(document).ready(function () {
     var database = firebase.database();
     var key = "";
 
-    
+
 
     $("#submit").on("click", function (event) {
         //alert("I was clicked");
@@ -52,11 +52,11 @@ $(document).ready(function () {
         place = $("#formInput").val().trim();
         food = $("#formFood").val().trim();
 
-       
+
 
         // $("#formgroupcontainer").hide();
         event.preventDefault();
-        
+
 
         if (debug) {
             alert("I was clicked");
@@ -64,7 +64,6 @@ $(document).ready(function () {
             console.log(place);
         }; //End Debug
 
-        //var queryURL = "https://api.yelp.com/v3/businesses/search?term=" + food + "&latitude=37.786882&longitude=-122.399972"
         var queryURL = "https://api.yelp.com/v3/businesses/search?term=" + food + "&location=" + place + "&price=1" + "&limit=50";
 
         if (debug) {
@@ -78,52 +77,52 @@ $(document).ready(function () {
         });//End prefilter
 
         //Do function related to the Firebase DB
-        
-        if((place.length == 0) || (food.length == 0)){
+
+        if ((place.length == 0) || (food.length == 0)) {
 
         }
         else {
             $("#formgroupcontainer").hide();
             addNewFB(queryURL);
-        
-        $.ajax({
-            url: queryURL,
-            method: 'GET',
-            headers: { 'Authorization': 'Bearer ' + 'yF9IjWnaqJ3yRbhJnyBvBR9Kh2zBdrdaXwQysdRAeIK5PNgfHvGuNWBqF3eBbv6eFZ2HnbtHG6jUf6CXHioS30K6SjxwpMja_dWEcC_KRgoEAxwTGI8J3vCBL8ftWnYx' }
-        }).then(function (response) {
-            // do something with response
-            if (debug) { console.log(response); }
-            prependResults(response);
 
-        });//End Ajax Call
-    }
+            $.ajax({
+                url: queryURL,
+                method: 'GET',
+                headers: { 'Authorization': 'Bearer ' + 'yF9IjWnaqJ3yRbhJnyBvBR9Kh2zBdrdaXwQysdRAeIK5PNgfHvGuNWBqF3eBbv6eFZ2HnbtHG6jUf6CXHioS30K6SjxwpMja_dWEcC_KRgoEAxwTGI8J3vCBL8ftWnYx' }
+            }).then(function (response) {
+                // do something with response
+                if (debug) { console.log(response); }
+                prependResults(response);
+
+            });//End Ajax Call
+        }
     }); //End of submit click
 
-    function addNewFB(queryURL){
-    // Save the new data in Firebase
-    database.ref().push({
-        food: food,
-        place: place,
-        queryURL: queryURL,
-        dateAdded: firebase.database.ServerValue.TIMESTAMP
-    });//End push    
+    function addNewFB(queryURL) {
+        // Save the new data in Firebase
+        database.ref().push({
+            food: food,
+            place: place,
+            queryURL: queryURL,
+            dateAdded: firebase.database.ServerValue.TIMESTAMP
+        });//End push    
     };//End updateFB
-//______________
+    //______________
     // Project listener to when new data is added to DB is here
-    database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function(childSnapshot) {
+    database.ref().orderByChild("dateAdded").limitToLast(15).on("child_added", function (childSnapshot) {
         food = childSnapshot.val().food;
         place = childSnapshot.val().place;
         queryURL = childSnapshot.val().queryURL;
         frequency = childSnapshot.val().frequency;
         dateAdded = childSnapshot.val().dateAdded;
         var key = childSnapshot.key;
-        var strSearch ="";
-        strSearch+=place+", ";
-        strSearch+=food+"\n";
+        var strSearch = "";
+        strSearch += place + ", ";
+        strSearch += food + "\n";
         // Prepend the table row to the table body
-        $("#recentSearches").prepend(strSearch);          
+        $("#recentSearches").prepend(strSearch);
     });//End ChildAdded 
-//_______________
+    //_______________
 
     function prependResults(resp) {
         console.log(resp);
@@ -154,21 +153,22 @@ $(document).ready(function () {
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
             let p5 = $("<a>").text("View in Map");
-            p5.attr("href","#map");
-            p5.attr({"lat": latitude, "lon": longitude, "id": "goMap"});
-            
-            restImage.attr({ "src": image
-            // , "class": "col-sm-2    img-responsive foodImg" 
-        });
+            p5.attr("href", "#map");
+            p5.attr({ "lat": latitude, "lon": longitude, "id": "goMap" });
+
+            restImage.attr({
+                "src": image
+                // , "class": "col-sm-2    img-responsive foodImg" 
+            });
             // restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class", "imgMeta");
             // imgDiv.append(restImage);
             restDiv.append(
                 restTd,
-                 p1,
+                p1,
                 //   p2,
-                   p3,
-                    p4, p5);
+                p3,
+                p4, p5);
             restRow.append(imgDiv, restDiv);
             $(".searchresults").prepend(restRow);
         }//end for loop
@@ -193,7 +193,7 @@ $(document).ready(function () {
 
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () { scrollFunction() };
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -205,7 +205,7 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-    document.body.scrollTop = 0; 
+    document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 }
 
