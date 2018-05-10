@@ -35,5 +35,10 @@ Javascript
 JSON
 JQuery
 Bootstrap
-Angular
+API
 
+#Authors
+Ryan Oliver Sotto
+Ivelisse Cintron
+Yulin
+Jeff

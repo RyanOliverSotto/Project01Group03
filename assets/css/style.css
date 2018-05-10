@@ -1,3 +1,4 @@
+
 body {
     background-color: white !important;   
 }
@@ -21,6 +22,12 @@ img {
     height: 50%;
     width: 50%;
 }
+
+img:hover {
+    transform: scale(1.18);
+    transition: all .8s ease;
+  }
+  
 #myBtn {
     display: none; 
     position: fixed; 
@@ -71,6 +78,7 @@ img {
 
 }
 
+
 .btn-primary:hover {
     background-color: rgb(168, 49, 49) !important;
 }
@@ -83,3 +91,4 @@ fill: red;
 td {
     color: black;
 }
+
