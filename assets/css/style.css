@@ -15,6 +15,12 @@ img {
     height: 50%;
     width: 50%;
 }
+
+img:hover {
+    transform: scale(1.18);
+    transition: all .8s ease;
+  }
+  
 #myBtn {
     display: none; 
     position: fixed; 
