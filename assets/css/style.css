@@ -91,6 +91,7 @@ fill: red;
 
 td {
     color: black;
+    margin-left: 10%;
 }
 
 .content-row {
@@ -99,3 +100,56 @@ td {
     border-radius: 10px !important;
     margin-bottom: 15px !important;
 }
+
+h1  {
+    /* padding-right: 10%;
+    font-weight: 10%; */
+    margin-left: 10%;
+    font-size: 25px;
+    font-weight: 900 !important;
+    position: relative;
+    bottom: 20px;
+}
+
+h2 {
+    margin-left: 10%;
+    
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: 600 !important;
+    position: relative;
+    bottom: 20px;
+}
+
+h3 {
+    margin-left: 10%;
+    font-size: 25px;
+    font-weight: 500 !important;
+    position: relative;
+    bottom: 20px;
+}
+
+h4 {
+    margin-left: 10%;
+    font-size: 25px;
+    font-weight: 900 !important;
+    position: relative;
+    bottom: 20px;
+}
+p {
+    font-size: 25px;
+    font-weight: 500 !important;
+}
+.srcImg {
+    margin-right: 20px;
+}
+
+@media screen and (max-width: 790px) {
+    h4 { display: none; }   /* hide it elsewhere */
+  }
+  @media screen and (max-width: 480px) {
+    h2 { display: none; }   /* hide it elsewhere */
+  }
+  @media screen and (max-width: 330px) {
+    h1,h3 { display: none; }   /* hide it elsewhere */
+  }

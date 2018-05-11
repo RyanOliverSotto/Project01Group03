@@ -145,22 +145,22 @@ $(document).ready(function () {
             let restDiv = $("<div>").attr("class", "content-row");
             var restTd = $('<td>');
             let restAnchor = $("<a>");
-            let restImage = $("<img>");
+            let restImage = $("<img>").attr('class', 'srcImg');
 
             var imgA = $('<a href="">');
             imgA.append(restImage);
             restTd.append(imgA);
 
-            let p1 = $("<td>").html(" "+ name + '<br>');
-            p1.append( displayPhone);
+            let p1 = $("<td>").html('<h1>'+ name + '<br>' + '</h1>');
+            p1.append("<h3>" + displayPhone + "</h3>");
 
             restTd.append(restImage);
-            let p1 = $("<td>").html(name + " ");
-            p1.append("Phone: " + displayPhone);
+            // let p1 = $("<td>").html(name + " ");
+            // p1.append("Phone: " + displayPhone);
 
             // let p2 = $("<td>").html("Phone: " + displayPhone);
-            let p3 = $("<td>").html(" Rating: " + rating);
-            let p4 = $("<td>").html(" Address: " + address.toString());
+            let p3 = $("<td>").html('<h2>' + " Rating: " + '<p>'+  rating  + '<p>' + '</h2>');
+            let p4 = $("<td>").html("<h4>" + " Address: " + address.toString()+ "</h4>");
             console.log(latitude + ", " + longitude);
             //let p4 = $("<p>").html("Closed: " + closed);
 
