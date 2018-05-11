@@ -3,17 +3,6 @@ body {
     background-color: white !important;   
 }
 
-
-.jumbotron {
-    text-align: center;
-    font-weight: bold;
-    font-size: 40px;
-    font-family: 'Raleway', sans-serif;
-    background-image: url("https://static1.squarespace.com/static/594d3e0b2e69cfd3cd04a569/596446c85016e1544a11e573/596448272e69cf1e25a38410/1499744304399/DMK-Hungry.jpg");
-    background-repeat: none;
-    background-size: cover;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
 .container {
     font-family: 'Raleway', sans-serif;
 }
@@ -94,6 +83,7 @@ td {
     margin-left: 10%;
 }
 
+
 .content-row {
     border: 1px solid #ced4da !important;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
@@ -153,3 +143,8 @@ p {
   @media screen and (max-width: 330px) {
     h1,h3 { display: none; }   /* hide it elsewhere */
   }
+=======
+.carousel {
+    
+}
+
