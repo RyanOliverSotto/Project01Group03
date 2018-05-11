@@ -27,10 +27,10 @@ $(document).ready(function () {
     var database = firebase.database();
     var key = "";
 
-
-
+    //Set the listner for submit click event
     $("#submit").on("click", function (event) {
-        //alert("I was clicked");
+        
+        //Perform data validation
         var isValid = true;
         $('#formInput,#formFood').each(function () {
             if ($.trim($(this).val()) == '') {
@@ -51,14 +51,7 @@ $(document).ready(function () {
             event.preventDefault();
         place = $("#formInput").val().trim();
         food = $("#formFood").val().trim();
-
-
-
-
-        // $("#formgroupcontainer").hide();
-
         event.preventDefault();
-
 
         if (debug) {
             alert("I was clicked");
@@ -66,12 +59,14 @@ $(document).ready(function () {
             console.log(place);
         }; //End Debug
 
+        // Create the Query here by grabbing the place and food from the page
         var queryURL = "https://api.yelp.com/v3/businesses/search?term=" + food + "&location=" + place + "&price=1" + "&limit=50";
 
         if (debug) {
             console.log(queryURL);
         }//End debug
 
+        //Prefilter start
         jQuery.ajaxPrefilter(function (options) {
             if (options.crossDomain && jQuery.support.cors) {
                 options.url = 'https://cors-anywhere.herokuapp.com/' + options.url;
@@ -79,9 +74,8 @@ $(document).ready(function () {
         });//End prefilter
 
         //Do function related to the Firebase DB
-
         if ((place.length == 0) || (food.length == 0)) {
-
+        //No action.  
         }
         else {
             $("#formgroupcontainer").hide();
@@ -92,7 +86,7 @@ $(document).ready(function () {
                 method: 'GET',
                 headers: { 'Authorization': 'Bearer ' + 'yF9IjWnaqJ3yRbhJnyBvBR9Kh2zBdrdaXwQysdRAeIK5PNgfHvGuNWBqF3eBbv6eFZ2HnbtHG6jUf6CXHioS30K6SjxwpMja_dWEcC_KRgoEAxwTGI8J3vCBL8ftWnYx' }
             }).then(function (response) {
-                // do something with response
+                // Call the prependResults function to write the response
                 if (debug) { console.log(response); }
                 prependResults(response);
 
@@ -120,14 +114,15 @@ $(document).ready(function () {
         var key = childSnapshot.key;
         var strSearch = "";
         strSearch += place + ", ";
-        strSearch += food + "\n";
+        strSearch += food + "\n"; //Needed to create a new row in the text area
         // Prepend the table row to the table body
         $("#recentSearches").prepend(strSearch);
     });//End ChildAdded 
     //_______________
 
     function prependResults(resp) {
-        console.log(resp);
+        if (debug) { console.log(response); }
+        //Perform for loop equal to length of the businesses array
         for (var i = 0; i < resp.businesses.length; i++) {
             let image = resp.businesses[i].image_url;
             let name = resp.businesses[i].name;
@@ -136,7 +131,6 @@ $(document).ready(function () {
             let latitude = resp.businesses[i].coordinates.latitude;
             let longitude = resp.businesses[i].coordinates.longitude;
             let phone = resp.businesses[i].phone;
-            //let closed = resp.businesses[i].is_closed; // Indicator if it is permanently closed
             let address = resp.businesses[i].location.display_address;
 
             //Create the DOM HTML elements
@@ -153,60 +147,24 @@ $(document).ready(function () {
 
             let p1 = $("<td>").html('<h1>'+ name + '<br>' + '</h1>');
             p1.append("<h3>" + displayPhone + "</h3>");
-
             restTd.append(restImage);
-            // let p1 = $("<td>").html(name + " ");
-            // p1.append("Phone: " + displayPhone);
-
-            // let p2 = $("<td>").html("Phone: " + displayPhone);
             let p3 = $("<td>").html('<h2>' + " Rating: " + '<p>'+  rating  + '<p>' + '</h2>');
             let p4 = $("<td>").html("<h4>" + " Address: " + address.toString()+ "</h4>");
-            console.log(latitude + ", " + longitude);
-            //let p4 = $("<p>").html("Closed: " + closed);
-
-            //let p5 = $("<p>").html("Coordinates:" + coordinates);
-            restImage.attr({ "src": image
-            // , "class": "col-sm-2    img-responsive foodImg" 
-    
-        });
-        
-        
-
+            restImage.attr({"src": image});
             let p5 = $("<a>").text("View in Map");
             p5.attr("href", "#map");
             p5.attr({ "lat": latitude, "lon": longitude, "id": "goMap" });
-
-            restImage.attr({
-                "src": image
-                // , "class": "col-sm-2    img-responsive foodImg" 
-            });
-
-            // restDiv.attr("class", "col-sm-3 restMeta");
             imgDiv.attr("class", "imgMeta");
-            // imgDiv.append(restImage);
             restDiv.append(
                 restTd,
                 p1,
-                //   p2,
                 p3,
-                p4, p5);
+                p4, 
+                p5);
             restRow.append(imgDiv, restDiv);
             $(".searchresults").prepend(restRow);
         }//end for loop
-    }//End preprendResults fuction
-
-    $("body").on("click", "a", function () {
-        //alert("hey");
-        console.log($(this).attr("lat"));
-        console.log($(this).attr("lon"));
-    });
-
-
-
-
-
-
-
+    }//End preprendResults function
 });//End document.ready
 
 

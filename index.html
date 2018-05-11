@@ -23,7 +23,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    
+    <!--Carousel division-->
     <div class="container">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
@@ -67,30 +67,25 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-    </div>
-
-
+    </div> 
+    <!--End Carousel division-->
+    <!--Input area of the page-->
     <div class="container">
-
         <div id ="formgroupcontainer">
-
         <div class="form-group">
             <div class="col-sm-10">
                 <input type="" class="form-control" id="formInput" name='geoInput' placeholder="Zip or Location">
             </div>
         </div>
-
         <div class="form-group">
             <div class="col-sm-10">
                 <input type="" class="form-control" id="formFood" name='foodInput'placeholder="What are you craving?">
             </div>
         </div>
-
         <div class="form-group">
             <div><span class="glyphicons glyphicons-fast-food"></span></div>
             <div class="col-sm-10">
                 <button id="submit" type="submit" data-toggle="popover" name='entrySubmit'class="btn btn-primary" val="">Find it!</button>
-
             </div>
         </div>
 
@@ -103,32 +98,33 @@
             </div>
         </div>
         </div>
-
+        <!--End input division-->
+        <!--Div that holds our search results-->
         <div class="searchresults">
-
         </div>
-
+        <!--Div that holds our map-->
         <div class="gmapresults">
             <div id="map" style="width:100%;height:500px;background:yellow"></div>
         </div>
-
+        <!--Button that will let user scroll to top-->
         <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-<tBody>
-<!--Insert restaurant rows here-->
-</tBody>
-
     </div>
     <!-- End Container -->
     <script>
+      //Declare our lat and long
       var publicLat = 0;
       var publicLon = 0;
+        //Hide the map 
         $("#map").hide();
+
+        //Set the listener to account for action when anchor is clicked
         $("body").on("click", "a", function () {
         $("#map").show();
             publicLat = $(this).attr("lat");
             publicLon = $(this).attr("lon");
             myMap();
-    });
+        });
+        
         function myMap() {
         var mapOptions = {
             center: new google.maps.LatLng(publicLat, publicLon),
