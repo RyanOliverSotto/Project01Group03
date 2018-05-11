@@ -38,7 +38,4 @@ Bootstrap
 API
 
 #Authors
-Ryan Oliver Sotto
-Ivelisse Cintron
-Yulin
-Jeff
+Ivelisse Cintron | Ryan Sotto | Yulin Mao | Jeff Vongkoth
